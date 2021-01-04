@@ -4,11 +4,6 @@
 
 ## Project setup
 
-##### Clone repository in your system
-```
-git clone https://github.com/aureatelabs/vue-route.git
-```
-
 ##### Installed required node modules
 
 ```
