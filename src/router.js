@@ -14,6 +14,7 @@ Router.prototype.push = function push(location) {
 
 Vue.use(Router);
 
+// 路由匹配的优先级：谁先定义，谁的优先级更高。
 const router = new Router({
   routes: [
     {
@@ -31,15 +32,27 @@ const router = new Router({
       }
     },
     {
-      // 配置可选的路由参数
-      path: '/contact/:name?',
-      name: 'contact',
+      // 规范的命名方式
+      // /user/:username/post/:post_id
+      // /user/evan/post/123
+      path: '/contact/:name?', // 配置可选的路由参数
+      name: 'contact', // 这种为命名路由 router-link to时可以通过name进行跳转
       component: () => import('./views/Contact.vue')
     },
     {
       path: '/blog',
       name: 'blog',
       component: () => import('./views/Blog.vue')
+    },
+    { path: '/user/:id', component: () => import('./views/User.vue'),
+      children: [
+        {
+          // 当 /user/:id/email 匹配成功，
+          // Email 会被渲染在 User 的 <router-view> 中
+          path: 'email',
+          component: () => import('./views/Email.vue')
+        }
+      ]
     }
   ]
 });

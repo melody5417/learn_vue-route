@@ -5,6 +5,7 @@
       <router-link to="/" class="active">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> |
+      <router-link to="/user">User</router-link> |
       <!-- path注意事项 -->
       <!-- No slash in the biggining or ./ means a relative url to the current one. -->
       <!-- A starting slash means an absolute url. -->
@@ -13,7 +14,7 @@
       <!-- 1. url地址显示 -->
       <!-- 2. 刷新: query不会丢失; params会丢失 -->
       <!-- 3. router配置，params需要显示配置 -->
-      <router-link :to="{name: 'contact', params: { name: 'params' }}">Params</router-link>
+      <router-link :to="{ name: 'contact', params: { name: 'params' }}">Params</router-link>
     </div>
   </header>
 </template>
